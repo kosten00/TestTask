@@ -8,3 +8,7 @@ Supported arguments:
   - '-s', '-i'
   - name of the output file
   - names of output files
+
+# Building project
+
+Clone repository, in poject root run gradle.jar.

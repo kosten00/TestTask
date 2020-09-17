@@ -5,7 +5,7 @@ Input files contain one of two kinds of data: integers or strings.
 
 The result of the program is a new file sorted ascending or descending.
 
-If the content of the source files does not allow merge sort a partial sorting is performed by skipping incorrectly sorted data.
+If the content of the source files does not allow merge sort, a partial sorting is performed by skipping incorrectly input sorted data.
 
 All errors and warnings are logged to standart output.
 
@@ -21,7 +21,7 @@ Examples:
         sort-it.exe -s out.txt in1.txt in2.txt in3.txt (for ascending lines)
         sort-it.exe -d -s out.txt in1.txt in2.txt (for descending lines)
 
-# Building project
+# Build
 Clone repository, in poject root run:
     
     gradle jar.

@@ -6,12 +6,12 @@ Supported arguments:
 
   - '-a', '-d'
   - '-s', '-i'
-  - name of the output file
-  - names of output files
+  - path of the output file
+  - paths of output files
 
 # Building project
-
 Clone repository, in poject root run gradle jar.
+Generated jar file location: build/libs/sort-it.jar.
 
 # Run
 java -jar sort-it.jar

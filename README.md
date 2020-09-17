@@ -11,4 +11,7 @@ Supported arguments:
 
 # Building project
 
-Clone repository, in poject root run gradle.jar.
+Clone repository, in poject root run gradle jar.
+
+# Run
+java -jar sort-it.jar

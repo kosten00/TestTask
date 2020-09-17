@@ -30,15 +30,23 @@ implementation features not specified in the assignment.
 
 
 Command line arguments:
-  - '-a', '-d': ascending or descending sorting order.
-  - '-s', '-i': type of file content, integer numbers or strings.
+  - '-a', '-d': sorting mode (-a or -d), optional, sort in ascending order by default;
+  - '-s', '-i': data type (strings or integers), required;
   - path of the output file
   - paths of output files
 
+Examples:
+
+        sort-it.exe -i -a out.txt in.txt (for ascending integers)
+        sort-it.exe -s out.txt in1.txt in2.txt in3.txt (for ascending lines)
+        sort-it.exe -d -s out.txt in1.txt in2.txt (for descending lines)
+
 # Building project
 Clone repository, in poject root run:
+    
     gradle jar.
 Generated jar file location: 
+    
     build/libs/sort-it.jar.
 
 # Run

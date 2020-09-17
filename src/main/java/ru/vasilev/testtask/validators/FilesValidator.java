@@ -1,4 +1,4 @@
-package ru.vasilev.testtask.validator;
+package ru.vasilev.testtask.validators;
 
 import java.io.File;
 import java.util.LinkedHashSet;

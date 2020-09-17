@@ -3,7 +3,13 @@ plugins {
 }
 
 group 'ru.vasilev.testtask'
-version '1.0-SNAPSHOT'
+
+jar {
+    manifest {
+        attributes("Main-Class": "ru.vasilev.testtask.main.Main")
+    }
+    archiveName("sort-it.jar")
+}
 
 repositories {
     mavenCentral()

@@ -1,4 +1,4 @@
-package ru.vasilev.testtask.main;
+package ru.vasilev.testtask.validators;
 
 import java.util.Arrays;
 

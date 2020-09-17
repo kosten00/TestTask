@@ -3,7 +3,8 @@ package ru.vasilev.testtask.main;
 import ru.vasilev.testtask.sorter.Sorter;
 import ru.vasilev.testtask.types.IntegerConverter;
 import ru.vasilev.testtask.types.StringConverter;
-import ru.vasilev.testtask.validator.FilesValidator;
+import ru.vasilev.testtask.validators.ArgumentsValidator;
+import ru.vasilev.testtask.validators.FilesValidator;
 
 import java.io.IOException;
 

@@ -15,6 +15,8 @@ public class ArgumentsValidator {
             "Missing required argument for input data type! (-s or -i)";
     private static final String NO_FILES_PATHS_ERROR =
             "Arguments do not contain input files paths!";
+    private static final String REPEATING_ARGUMENT_ERROR =
+            "Type argument passed 2 times, required 1!";
 
     public ArgumentsValidator(String[] args) {
         validate(args);
@@ -42,12 +44,12 @@ public class ArgumentsValidator {
 
     private void validate(String[] args) {
         if (args.length < 3) {
-            System.out.printf(WRONG_ARGS_COUNT_ERROR, args.length);
+            System.out.printf(WRONG_ARGS_COUNT_ERROR + "%n", args.length);
 
             hasErrors = true;
-            return;
         }
         type = "";
+
         int outputPathStartIndex = 0;
         for (int i = 0; i < 2; i++) {
             if (args[i].matches("-[ad]")) {
@@ -58,6 +60,11 @@ public class ArgumentsValidator {
             }
             if (args[i].matches("-[si]")) {
                 outputPathStartIndex++;
+
+                if (!"".equals(type)) {
+                    System.out.println(REPEATING_ARGUMENT_ERROR);
+                    hasErrors = true;
+                }
                 type = args[i];
             }
         }
@@ -65,13 +72,11 @@ public class ArgumentsValidator {
             System.out.println(NO_REQUIRED_ARGUMENT_ERROR);
 
             hasErrors = true;
-            return;
         }
         if (outputPathStartIndex == (args.length - 1)) {
             System.out.println(NO_FILES_PATHS_ERROR);
 
             hasErrors = true;
-            return;
         }
         outputPath = args[outputPathStartIndex];
 

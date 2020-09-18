@@ -1,6 +1,6 @@
 # Test task solution.
 
-Program for sorting by merging multiple files. The files are considered to be sorted.
+Program for sorting by merging multiple files. Files are considered to be sorted.
 Input files contain one of two kinds of data: integers or strings.
 
 The result of the program is a new file sorted ascending or descending.

@@ -24,10 +24,10 @@ Examples:
 # Build
 Clone repository, in poject root run:
     
-    gradle jar.
+    gradle jar
 Generated jar file location: 
     
-    build/libs/sort-it.jar.
+    build/libs/sort-it.jar
 
 # Run
     java -jar sort-it.jar

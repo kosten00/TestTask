@@ -10,7 +10,7 @@ If the content of the source files does not allow merge sort, a partial sorting 
 All errors and warnings are logged to standard output.
 
 Command line arguments:
-  - '-a', '-d': sorting mode (-a or -d), optional, sort in ascending order by default;
+  - '-a', '-d': sorting mode (ascending or descending), optional, sort in ascending order by default;
   - '-s', '-i': data type (strings or integers), required;
   - path of the output file
   - paths of output files

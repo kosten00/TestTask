@@ -10,7 +10,7 @@ import java.util.*;
  * Class that reads sorted values from files, passed through constructor,
  * and than writes to output file.
  * <p>
- * If files are not sorted correctly - skips unsorted values.
+ * If file data is not sorted correctly - skips unsorted values.
  *
  * @param <T> comparable type.
  * @author Vasilev K.V.

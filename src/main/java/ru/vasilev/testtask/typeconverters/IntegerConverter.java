@@ -1,4 +1,4 @@
-package ru.vasilev.testtask.types;
+package ru.vasilev.testtask.typeconverters;
 
 import ru.vasilev.testtask.interfaces.TypeConverter;
 

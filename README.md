@@ -7,7 +7,7 @@ The result of the program is a new file sorted ascending or descending.
 
 If the content of the source files does not allow merge sort, a partial sorting is performed by skipping incorrectly sorted input data.
 
-All errors and warnings are logged to standart output.
+All errors and warnings are logged to standard output.
 
 Command line arguments:
   - '-a', '-d': sorting mode (-a or -d), optional, sort in ascending order by default;

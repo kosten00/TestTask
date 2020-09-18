@@ -3,10 +3,10 @@ package ru.vasilev.testtask.typeconverters;
 import ru.vasilev.testtask.interfaces.TypeConverter;
 
 /**
- * Implementation of {@link TypeConverter} to convert from/to String type.
+ * Implementation of {@link TypeConverter} interface to convert from/to String type.
  *
  * @author Vasilev K.V.
- * @version 1.0*
+ * @version 1.0
  */
 public class IntegerConverter implements TypeConverter<Integer> {
 

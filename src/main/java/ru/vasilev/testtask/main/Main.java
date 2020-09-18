@@ -9,7 +9,7 @@ import ru.vasilev.testtask.validators.FilesValidator;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ArgumentsValidator av = new ArgumentsValidator(args);
 
         if (av.hasErrors()) {
@@ -21,11 +21,14 @@ public class Main {
             return;
         }
 
-        if ("-s".equals(av.getType())) {
-            new Sorter<>(av.getOutputPath(), av.isAscOrder(), fv.getValidFiles(), new StringConverter());
-
-            return;
+        try {
+            if ("-s".equals(av.getType())) {
+                new Sorter<>(av.getOutputPath(), av.isAscOrder(), fv.getValidFiles(), new StringConverter());
+            } else {
+                new Sorter<>(av.getOutputPath(), av.isAscOrder(), fv.getValidFiles(), new IntegerConverter());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Can't write to output file!", e);
         }
-        new Sorter<>(av.getOutputPath(), av.isAscOrder(), fv.getValidFiles(), new IntegerConverter());
     }
 }

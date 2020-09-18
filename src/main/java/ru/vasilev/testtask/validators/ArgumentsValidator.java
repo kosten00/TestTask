@@ -2,6 +2,12 @@ package ru.vasilev.testtask.validators;
 
 import java.util.Arrays;
 
+/**
+ * Class for validation of command line arguments.
+ *
+ * @author Vasilev K.V.
+ * @version 1.0
+ */
 public class ArgumentsValidator {
     private boolean hasErrors;
     private boolean isAscOrder = true;
@@ -68,6 +74,7 @@ public class ArgumentsValidator {
                 type = args[i];
             }
         }
+
         if (type.equals("")) {
             System.out.println(NO_REQUIRED_ARGUMENT_ERROR);
 

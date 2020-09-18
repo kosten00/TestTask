@@ -4,6 +4,13 @@ import java.io.File;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Class validating file paths passed as command line arguments.
+ * Instance generates set of valid files.
+ *
+ * @author Vasilev K.V.
+ * @version 1.0
+ */
 public class FilesValidator {
     String[] filePaths;
     Set<File> files;
@@ -44,6 +51,7 @@ public class FilesValidator {
                 System.out.printf(FILE_ERROR + "%n", fileName);
             }
         }
+
         if (files.size() == 1) {
             System.out.println(ONE_FILE_WARNING);
         }

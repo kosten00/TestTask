@@ -22,7 +22,7 @@ Examples:
         java -jar sort-it.jar -d -s out.txt in1.txt in2.txt (for descending lines)
 
 # Build
-Clone repository, in poject root run:
+Clone repository, in project root run:
     
     gradle jar
 Generated jar file location: 

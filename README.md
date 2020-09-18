@@ -10,10 +10,10 @@ All the errors and warnings are logged to standard output.
 
 Command line arguments:
 
-    - '-a', '-d': sorting mode (ascending or descending), optional, sort in ascending order by default;
-    - '-s', '-i': data type (strings or integers), required;
-    - path of the output file
-    - paths of the output files
+   - '-a', '-d': sorting mode (ascending or descending), optional, sort in ascending order by default;
+   - '-s', '-i': data type (strings or integers), required;
+   - path of the output file
+   - paths of the output files
   
 Examples:
 

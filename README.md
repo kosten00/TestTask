@@ -1,6 +1,6 @@
 # Test task solution.
 
-Program for sorting by merging multiple input files in one output file. Files are considered to be sorted.
+Program for sorting by merging multiple input files in one output file. Input files are considered to be sorted.
 Input files contain one of two kinds of data: integers or strings.
 
 The result of the program is a new file sorted ascending or descending.
@@ -13,7 +13,7 @@ Command line arguments:
   - '-a', '-d': sorting mode (ascending or descending), optional, sort in ascending order by default;
   - '-s', '-i': data type (strings or integers), required;
   - path of the output file
-  - paths of output files
+  - paths of the output files
 
 Examples:
 

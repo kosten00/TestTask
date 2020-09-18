@@ -18,8 +18,8 @@ Command line arguments:
 Examples:
 
         java -jar sort-it.jar -i -a out.txt in.txt (for ascending integers)
-        java -jar sort-it.jar -s out.txt in1.txt in2.txt in3.txt (for ascending lines)
-        java -jar sort-it.jar -d -s out.txt in1.txt in2.txt (for descending lines)
+        java -jar sort-it.jar -s out.txt in1.txt in2.txt in3.txt (for ascending strings)
+        java -jar sort-it.jar -d -s out.txt in1.txt in2.txt (for descending strings)
 
 # Build
 Clone repository, in project root run:

@@ -22,7 +22,7 @@ Examples:
         java -jar sort-it.jar -d -s out.txt in1.txt in2.txt (for descending strings)
 
 # Build
-Required JDK 13 and gradle.
+Build with JDK 13 and Gradle 4.4.1.
 
 Clone repository, in project root run:
     

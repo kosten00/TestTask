@@ -16,7 +16,7 @@ import java.util.*;
  * If type is not supported by passed converter, such value is skipped.
  * <p>
  * Files are considered to be sorted in the same order as passed
- * parameter to an instance of this class.
+ * parameter to constructor of this class.
  * Otherwise incorrect sorted values from files are skipped.
  *
  * @param <T> comparable type.
@@ -70,16 +70,16 @@ public class Sorter<T extends Comparable<T>> {
     }
 
     /**
-     * Gets file with min or max value read (based on args parameters),
-     * writes (merges) value to output file.
+     * Gets file with min or max value read (based on constructor order
+     * parameter), writes value to output file.
      * <p>
-     * Catches 'end of file' EOFException and removes files from maps.
+     * Catches 'end of file' EOFException and removes file from maps.
      * <p>
-     * Catches IOException and removes file, that can't be read from maps.
+     * Catches IOException and removes file, that can't be read, from maps.
      * <p>
      * Closes {@link BufferedWriter} writer after no files left.
      *
-     * @throws IOException if output file can't be written
+     * @throws IOException if output file can't be written.
      */
     private void merge() throws IOException {
         while (filesCount != 0) {
@@ -117,7 +117,7 @@ public class Sorter<T extends Comparable<T>> {
      *
      * @param file  File instance to iterate through.
      * @param index number of a line that needs to be read.
-     * @return string of read value.
+     * @return String with value read.
      * @throws IOException if file can't be read.
      */
     private String readNextValue(File file, int index) throws IOException {
@@ -180,22 +180,8 @@ public class Sorter<T extends Comparable<T>> {
                 || (!isAscOrder && (!isGreater || isEqual));
     }
 
-    private void remove(File file, String message) {
-        lastReadValues.remove(file);
-        lastReadLineIndices.remove(file);
-
-        System.out.printf(message, file.getName());
-
-        filesCount--;
-    }
-
-    private void mapFileData(File file, String value, int index) {
-        lastReadValues.put(file, converter.toType(value));
-        lastReadLineIndices.put(file, index);
-    }
-
     /**
-     * Helper method to get next file, which value should be merged to output file.
+     * Helper method to get next file, which value should be written to output file.
      *
      * @return file with min or max value (based on specified order) on current iteration.
      */
@@ -203,5 +189,19 @@ public class Sorter<T extends Comparable<T>> {
         return isAscOrder
                 ? Collections.min(lastReadValues.entrySet(), Map.Entry.comparingByValue()).getKey()
                 : Collections.max(lastReadValues.entrySet(), Map.Entry.comparingByValue()).getKey();
+    }
+
+    private void mapFileData(File file, String value, int index) {
+        lastReadValues.put(file, converter.toType(value));
+        lastReadLineIndices.put(file, index);
+    }
+
+    private void remove(File file, String message) {
+        lastReadValues.remove(file);
+        lastReadLineIndices.remove(file);
+
+        System.out.printf(message, file.getName());
+
+        filesCount--;
     }
 }

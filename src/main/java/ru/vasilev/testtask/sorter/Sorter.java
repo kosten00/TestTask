@@ -70,34 +70,6 @@ public class Sorter<T extends Comparable<T>> {
     }
 
     /**
-     * Creates autocloseable reader {@link BufferedReader} instance
-     * in 'try with resources' block.
-     * Reads from file. Throws EOFException if read value equals null
-     * (reaches end of file).
-     *
-     * @param file  File instance to iterate through.
-     * @param index number of a line that needs to be read.
-     * @return string of read value.
-     * @throws IOException if file can't be read.
-     */
-    private String readNextValue(File file, int index) throws IOException {
-        String value;
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            int start = 0;
-            while (start != index) {
-                br.readLine();
-                start++;
-            }
-            value = br.readLine();
-        }
-
-        if (value == null) {
-            throw new EOFException();
-        }
-        return value;
-    }
-
-    /**
      * Gets file with min or max value read (based on args parameters),
      * writes (merges) value to output file.
      * <p>
@@ -135,6 +107,34 @@ public class Sorter<T extends Comparable<T>> {
             }
         }
         writer.close();
+    }
+
+    /**
+     * Creates autocloseable reader {@link BufferedReader} instance
+     * in 'try with resources' block.
+     * Reads from file. Throws EOFException if read value equals null
+     * (reaches end of file).
+     *
+     * @param file  File instance to iterate through.
+     * @param index number of a line that needs to be read.
+     * @return string of read value.
+     * @throws IOException if file can't be read.
+     */
+    private String readNextValue(File file, int index) throws IOException {
+        String value;
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            int start = 0;
+            while (start != index) {
+                br.readLine();
+                start++;
+            }
+            value = br.readLine();
+        }
+
+        if (value == null) {
+            throw new EOFException();
+        }
+        return value;
     }
 
     /**

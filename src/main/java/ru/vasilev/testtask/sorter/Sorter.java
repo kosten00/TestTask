@@ -3,8 +3,10 @@ package ru.vasilev.testtask.sorter;
 import ru.vasilev.testtask.interfaces.TypeConverter;
 
 import java.io.*;
-
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Class that reads values from multiple files line by line

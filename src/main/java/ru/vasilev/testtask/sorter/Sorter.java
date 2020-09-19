@@ -19,7 +19,7 @@ import java.util.Map;
  * <p>
  * Files are considered to be sorted in the same order as passed
  * parameter to constructor of this class.
- * Otherwise incorrect sorted values from files are skipped.
+ * Otherwise incorrectly sorted values from files are skipped.
  *
  * @param <T> comparable type.
  * @author Vasilev K.V.

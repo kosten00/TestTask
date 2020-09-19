@@ -23,10 +23,10 @@ Examples:
         java -jar sort-it.jar -d -s out.txt in1.txt in2.txt (for descending strings)
 
 # Build
-Clone repository, in project root run:
+Clone repository, in project root run in command line:
     
     gradle jar
-Generated jar file location: 
+Generated jar file location (from project root): 
     
     build/libs/sort-it.jar
 

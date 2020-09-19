@@ -26,7 +26,7 @@ Examples:
 Clone repository, in project root run:
     
     gradle jar
-Generated jar file location: 
+Generated jar file location (from project root): 
     
     build/libs/sort-it.jar
 

@@ -1,4 +1,5 @@
 # Test task solution.
+Build with JDK 13 and Gradle 4.4.1.
 
 Program for sorting by merging multiple input files in one output file. Input files are considered to be sorted. Input files contain one of two types of data: integers or strings.
 
@@ -22,8 +23,6 @@ Examples:
         java -jar sort-it.jar -d -s out.txt in1.txt in2.txt (for descending strings)
 
 # Build
-Build with JDK 13 and Gradle 4.4.1.
-
 Clone repository, in project root run:
     
     gradle jar

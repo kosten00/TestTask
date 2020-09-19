@@ -5,8 +5,9 @@ import java.util.Collection;
 import java.util.HashSet;
 
 /**
- * Class validating file paths passed as command line arguments.
+ * Class that validates file paths passed as command line arguments.
  * Instance generates set of valid files.
+ * If file is not valid, skips such file.
  *
  * @author Vasilev K.V.
  * @version 1.0

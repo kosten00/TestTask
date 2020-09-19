@@ -3,7 +3,8 @@ package ru.vasilev.testtask.validators;
 import java.util.Arrays;
 
 /**
- * Class for validation of command line arguments.
+ * Class that checks command line arguments to be valid,
+ * and if not logs errors to standard output.
  *
  * @author Vasilev K.V.
  * @version 1.0

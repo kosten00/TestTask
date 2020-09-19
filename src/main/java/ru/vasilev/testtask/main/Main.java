@@ -11,12 +11,11 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         ArgumentsValidator av = new ArgumentsValidator(args);
-
         if (av.hasErrors()) {
             return;
         }
-        FilesValidator fv = new FilesValidator(av.getFilesPaths());
 
+        FilesValidator fv = new FilesValidator(av.getFilesPaths());
         if (fv.hasNoValidFiles()) {
             return;
         }

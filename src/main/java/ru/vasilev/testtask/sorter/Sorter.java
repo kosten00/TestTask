@@ -7,10 +7,17 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Class that reads sorted values from files, passed through constructor,
- * and than writes to output file.
+ * Class that reads values from multiple files line by line
+ * (one line = one value), and than writes to output file
+ * with specified sorting order.
  * <p>
- * If file data is not sorted correctly - skips unsorted values.
+ * Lines are converted to specified {@link Comparable} type
+ * using {@link TypeConverter} converter.
+ * If type is not supported by passed converter, such value is skipped.
+ * <p>
+ * Files are considered to be sorted in the same order as passed
+ * parameter to an instance of this class.
+ * Otherwise incorrect sorted values from files are skipped.
  *
  * @param <T> comparable type.
  * @author Vasilev K.V.
@@ -63,8 +70,10 @@ public class Sorter<T extends Comparable<T>> {
     }
 
     /**
-     * Creates autocloseable reader {@link BufferedReader} instance in try with resources block.
-     * Reads from file. Throws EOFException if read value equals null (reaches end of file).
+     * Creates autocloseable reader {@link BufferedReader} instance
+     * in 'try with resources' block.
+     * Reads from file. Throws EOFException if read value equals null
+     * (reaches end of file).
      *
      * @param file  File instance to iterate through.
      * @param index number of a line that needs to be read.
@@ -89,14 +98,14 @@ public class Sorter<T extends Comparable<T>> {
     }
 
     /**
-     * Gets file with min or max read value (based on args parameters),
+     * Gets file with min or max value read (based on args parameters),
      * writes (merges) value to output file.
      * <p>
-     * Catches 'end of file' EOFException and than removes files from maps.
+     * Catches 'end of file' EOFException and removes files from maps.
      * <p>
      * Catches IOException and removes file, that can't be read from maps.
      * <p>
-     * After no files left closes {@link BufferedWriter} writer.
+     * Closes {@link BufferedWriter} writer after no files left.
      *
      * @throws IOException if output file can't be written
      */
@@ -104,8 +113,8 @@ public class Sorter<T extends Comparable<T>> {
         while (filesCount != 0) {
             File file = orderedByValue();
             writer.write(converter.fromType(lastReadValues.get(file)));
-
             int nextIndex = 1 + lastReadLineIndices.get(file);
+
             try {
                 String nextValue = readNextValue(file, nextIndex);
 
@@ -129,13 +138,13 @@ public class Sorter<T extends Comparable<T>> {
     }
 
     /**
-     * Checks if next read value of correct type and follows sorting order by catching
-     * IllegalArgumentException.
-     * If exception is thrown - skips such values.
+     * Checks if next value read follows sorting
+     * order and of correct type by catching IllegalArgumentException
+     * thrown from {@link TypeConverter} converter.
      *
      * @param file      File that have max or min value on current iteration.
-     * @param nextValue New value read from file, that needs to be valid.
-     * @return true if next value is valid, otherwise false.
+     * @param nextValue New value read from file, that should be checked.
+     * @return true if next value is correct, otherwise false.
      */
     private boolean isCorrectLineIndex(File file, String nextValue) {
         try {
@@ -154,11 +163,11 @@ public class Sorter<T extends Comparable<T>> {
     }
 
     /**
-     * Helper method to check if next value follows correct order.
+     * Helper method to check if next value follows specified order.
      *
      * @param nextValue last read value from file. Equals null on first line read.
      * @param lastValue last valid value written to output.
-     * @return true if order is correct, otherwise false.
+     * @return true if order equals to specified, otherwise false.
      */
     private boolean hasCorrectOrder(T nextValue, T lastValue) {
         if (lastValue == null) {
@@ -188,7 +197,7 @@ public class Sorter<T extends Comparable<T>> {
     /**
      * Helper method to get next file, which value should be merged to output file.
      *
-     * @return file with min or max value on current iteration.
+     * @return file with min or max value (based on specified order) on current iteration.
      */
     private File orderedByValue() {
         return isAscOrder

@@ -1,8 +1,8 @@
 package ru.vasilev.testtask.validators;
 
 import java.io.File;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * Class validating file paths passed as command line arguments.
@@ -12,19 +12,19 @@ import java.util.Set;
  * @version 1.0
  */
 public class FilesValidator {
-    String[] filePaths;
-    Set<File> files;
+    String[] paths;
+    Collection<File> files;
 
     private static final String DUPLICATION_ERROR =
-            "File with name '%s' is duplicated!";
+            "File with name '%s' is duplicated!%n";
     private static final String FILE_ERROR =
-            "File with name '%s' does not exists or is not a correct file!";
+            "File with name '%s' does not exists or is not a correct file!%n";
     private static final String ONE_FILE_WARNING =
             "Got only one correct file passed as param!";
 
-    public FilesValidator(String[] filePaths) {
-        this.filePaths = filePaths;
-        files = new LinkedHashSet<>();
+    public FilesValidator(String[] paths) {
+        this.paths = paths;
+        files = new HashSet<>();
 
         collectValidFiles();
     }
@@ -33,22 +33,22 @@ public class FilesValidator {
         return files.size() == 0;
     }
 
-    public Set<File> getValidFiles() {
+    public Collection<File> getValidFiles() {
         return files;
     }
 
     private void collectValidFiles() {
-        for (String fileName : filePaths) {
-            File file = new File(fileName);
+        for (String path : paths) {
+            File file = new File(path);
 
             if (file.exists() && file.isFile()) {
                 if (files.contains(file)) {
-                    System.out.printf(DUPLICATION_ERROR + "%n", fileName);
+                    System.out.printf(DUPLICATION_ERROR, path);
                 } else {
                     files.add(file);
                 }
             } else {
-                System.out.printf(FILE_ERROR + "%n", fileName);
+                System.out.printf(FILE_ERROR, path);
             }
         }
 

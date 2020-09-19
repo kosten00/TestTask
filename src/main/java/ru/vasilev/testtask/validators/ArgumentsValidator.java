@@ -16,7 +16,7 @@ public class ArgumentsValidator {
     private String[] filesPaths;
 
     private static final String WRONG_ARGS_COUNT_ERROR =
-            "Required minimum of 3 arguments to run a program. Found: %d";
+            "Required minimum of 3 arguments to run a program. Found: %d.%n";
     private static final String NO_REQUIRED_ARGUMENT_ERROR =
             "Missing required argument for input data type! (-s or -i)";
     private static final String NO_FILES_PATHS_ERROR =
@@ -50,7 +50,7 @@ public class ArgumentsValidator {
 
     private void validate(String[] args) {
         if (args.length < 3) {
-            System.out.printf(WRONG_ARGS_COUNT_ERROR + "%n", args.length);
+            System.out.printf(WRONG_ARGS_COUNT_ERROR, args.length);
 
             hasErrors = true;
         }

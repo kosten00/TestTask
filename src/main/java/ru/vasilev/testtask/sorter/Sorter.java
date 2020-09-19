@@ -39,7 +39,7 @@ public class Sorter<T extends Comparable<T>> {
     private static final String INCORRECT_ORDER_ERROR =
             "File '%s' has incorrect order! Skipping current line.%n";
 
-    public Sorter(String output, boolean isAscOrder, Set<File> files, TypeConverter<T> converter) throws IOException {
+    public Sorter(String output, boolean isAscOrder, Collection<File> files, TypeConverter<T> converter) throws IOException {
         this.isAscOrder = isAscOrder;
         this.converter = converter;
 
@@ -62,6 +62,15 @@ public class Sorter<T extends Comparable<T>> {
         merge();
     }
 
+    /**
+     * Creates autocloseable reader {@link BufferedReader} instance in try with resources block.
+     * Reads from file. Throws EOFException if read value equals null (reaches end of file).
+     *
+     * @param file  File instance to iterate through.
+     * @param index number of a line that needs to be read.
+     * @return string of read value.
+     * @throws IOException if file can't be read.
+     */
     private String readNextValue(File file, int index) throws IOException {
         String value;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -82,11 +91,14 @@ public class Sorter<T extends Comparable<T>> {
     /**
      * Gets file with min or max read value (based on args parameters),
      * writes (merges) value to output file.
-     * Catches 'end of file' EOFException and than removes files from maps.
-     * Catches IOException and removes file, that can't be read.
-     * After no files left closes {@link BufferedWriter} writer.
      * <p>
-     * throws IOException if output file can't be written.
+     * Catches 'end of file' EOFException and than removes files from maps.
+     * <p>
+     * Catches IOException and removes file, that can't be read from maps.
+     * <p>
+     * After no files left closes {@link BufferedWriter} writer.
+     *
+     * @throws IOException if output file can't be written
      */
     private void merge() throws IOException {
         while (filesCount != 0) {
@@ -119,7 +131,7 @@ public class Sorter<T extends Comparable<T>> {
     /**
      * Checks if next read value of correct type and follows sorting order by catching
      * IllegalArgumentException.
-     * If exception it thrown - skips such values.
+     * If exception is thrown - skips such values.
      *
      * @param file      File that have max or min value on current iteration.
      * @param nextValue New value read from file, that needs to be valid.
@@ -144,7 +156,7 @@ public class Sorter<T extends Comparable<T>> {
     /**
      * Helper method to check if next value follows correct order.
      *
-     * @param nextValue last read value from file. Equals null after first line read.
+     * @param nextValue last read value from file. Equals null on first line read.
      * @param lastValue last valid value written to output.
      * @return true if order is correct, otherwise false.
      */

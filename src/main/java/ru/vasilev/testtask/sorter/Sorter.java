@@ -19,7 +19,7 @@ import java.util.Map;
  * <p>
  * Files are considered to be sorted in the same order as passed
  * parameter to constructor of this class.
- * Otherwise incorrect sorted values from files are skipped.
+ * Otherwise incorrectly sorted values from files are skipped.
  *
  * @param <T> comparable type.
  * @author Vasilev K.V.
@@ -92,7 +92,7 @@ public class Sorter<T extends Comparable<T>> {
             try {
                 String nextValue = readNextValue(file, nextIndex);
 
-                while (!isCorrectLineIndex(file, nextValue)) {
+                while (!isCorrectLine(file, nextValue)) {
                     nextIndex++;
                     nextValue = readNextValue(file, nextIndex);
                 }
@@ -148,7 +148,7 @@ public class Sorter<T extends Comparable<T>> {
      * @param nextValue New value read from file, that should be checked.
      * @return true if next value is correct, otherwise false.
      */
-    private boolean isCorrectLineIndex(File file, String nextValue) {
+    private boolean isCorrectLine(File file, String nextValue) {
         try {
             if (hasCorrectOrder(converter.toType(nextValue), lastReadValues.get(file))) {
                 return true;

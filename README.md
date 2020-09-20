@@ -1,7 +1,7 @@
 # Test task solution.
 Build with JDK 13 and Gradle 4.4.1.
 
-Program for sorting by merging multiple input files in one output file. Input files are considered to be sorted. Input files may contain one of two types of data: integers or strings.
+Program for sorting values from multiple input files in one output file be mergin. Input files are considered to be sorted. Input files may contain one of two types of data: integers or strings.
 
 The result of the program is a new file sorted ascending or descending.
 

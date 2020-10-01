@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * Class that reads values from multiple files line by line
- * (one line = one value), and than writes to output file
+ * (one line = one value), and then writes to output file
  * with specified sorting order.
  * <p>
  * Lines are converted to specified {@link Comparable} type

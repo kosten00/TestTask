@@ -14,7 +14,7 @@ Command line arguments:
    - '-a', '-d': sorting mode (ascending or descending), optional, sort in ascending order by default;
    - '-s', '-i': data type (strings or integers), required;
    - path of the output file, required;
-   - paths of the output files, atleast one;
+   - paths of the input files, atleast one;
   
 Examples:
 
